@@ -4,7 +4,7 @@ export function Hero() {
     return (
         <section className="relative pt-32 bg-white">
             {/* Container for Title only */}
-            <div className="container px-4 md:px-12 mb-8 flex justify-center mx-auto">
+            <div className="container px-4 md:px-8 mb-8 flex justify-center mx-auto">
                 <div className="w-full text-center">
                     <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black tracking-tighter leading-tight whitespace-nowrap inline-block">
                         Ideas para diseñar tu piscina de gres porcelánico
@@ -17,7 +17,7 @@ export function Hero() {
                 {/* Background Image */}
                 <div className="absolute inset-0 w-full h-full">
                     <img
-                        src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2070&auto=format&fit=crop"
+                        src="/image/hero/rosa-gres-piscina-gres-porcelanico-cuore-verde.webp"
                         alt="Hero Pool"
                         className="w-full h-full object-cover"
                     />
@@ -31,11 +31,6 @@ export function Hero() {
                     </div>
                 </div>
             </div>
-
-            {/* Spacer to push content down if form exceeds image height, though usually Hero images are tall enough. 
-          If form is taller than image, we need handling. 
-          Given the screenshot, form sits nicely inside. 
-      */}
         </section>
     )
 }

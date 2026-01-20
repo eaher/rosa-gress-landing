@@ -14,7 +14,7 @@ export function Inspiration() {
 
     return (
         <section className="py-20 bg-[#F5F5F5]">
-            <div className="container mx-auto px-4 md:px-12">
+            <div className="container mx-auto px-4 md:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">Ideas para diseñar piscinas pequeñas</h2>
                     <p className="text-gray-600 text-lg">Aquí tienes una selección de las piscinas pequeñas preferidas por nuestros fans. ¡Inspírate!</p>

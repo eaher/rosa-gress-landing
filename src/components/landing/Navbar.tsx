@@ -27,52 +27,64 @@ export function Navbar() {
     }
 
     const links = [
-        { label: "PISCINAS PEQUEÑAS", id: "inspiration" },
-        { label: "LOS COLORES DEL AGUA", id: "colorguide" },
-        { label: "CÓMO DISEÑAR TU PISCINA PASO A PASO", id: "pooltypes" },
-        { label: "NOVEDADES", id: "novedades" },
-        { label: "CONTACTA", id: "contact" },
+        { label: "Inicio", id: "hero" },
+        { label: "Productos", id: "products" },
+        { label: "Sobre Nosotros", id: "about" },
+        { label: "In & Out", id: "inandout" },
+        { label: "Galería", id: "inspiration" },
+        { label: "Estilo de Piscinas", id: "pooltypes" },
+        { label: "Contacto", id: "contact" },
     ]
 
     return (
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white",
-                isScrolled ? "py-2 shadow-none" : "py-6"
+                isScrolled ? "py-2 shadow-sm" : "py-4"
             )}
         >
-            <div className="container mx-auto px-4 md:px-12 flex items-center justify-between xl:justify-center xl:gap-x-16">
-                {/* Logo */}
-                <div className="flex items-center cursor-pointer" onClick={() => scrollToSection("hero")}>
+            <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+
+                {/* Left Logo: Ceracor */}
+                <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection("hero")}>
                     <Link href="/" className="block">
                         <Image
-                            src="/image/logo/logo.png"
-                            alt="Logo de la Empresa"
-                            width={150}
-                            height={60}
-                            className="h-15 w-auto object-contain"
+                            src="/image/logo/logo-cera.png"
+                            alt="Ceracor"
+                            width={140}
+                            height={50}
+                            className="h-10 md:h-12 w-auto object-contain"
                             priority
                         />
                     </Link>
                 </div>
 
-                {/* Desktop Nav */}
-                <nav className="hidden xl:flex items-center">
+                {/* Desktop Nav - Centered */}
+                <nav className="hidden xl:flex items-center justify-center gap-x-1">
                     {links.map((link, index) => (
                         <div key={link.label} className="flex items-center">
                             <button
                                 onClick={() => scrollToSection(link.id)}
-                                className="text-[17px] font-bold text-gray-800 hover:text-[#00B4B0] uppercase tracking-wide transition-colors"
+                                className="text-[14px] font-medium text-gray-600 hover:text-[#00B4B0] uppercase tracking-wider transition-colors px-2"
                             >
                                 {link.label}
                             </button>
-                            {/* Separator Pipe for all except last */}
-                            {index < links.length - 1 && (
-                                <span className="mx-2 text-gray-800 font-bold text-[11px]">|</span>
-                            )}
+                            {/* No separator pipe based on the image provided, just clean spacing */}
                         </div>
                     ))}
                 </nav>
+
+                {/* Right Logo: Rosa Gres / Strufaldi */}
+                <div className="hidden xl:block flex-shrink-0">
+                    <Image
+                        src="/image/logo/logo-rosa.png"
+                        alt="Rosa Gres"
+                        width={180}
+                        height={64}
+                        className="h-14 md:h-16 w-auto object-contain"
+                        priority
+                    />
+                </div>
 
                 {/* Mobile Toggle */}
                 <button
@@ -95,6 +107,16 @@ export function Navbar() {
                             {link.label}
                         </button>
                     ))}
+                    {/* Show right logo in mobile menu bottom? */}
+                    <div className="pt-4 border-t flex justify-center">
+                        <Image
+                            src="/image/logo/logo-rosa.png"
+                            alt="Rosa Gres"
+                            width={120}
+                            height={40}
+                            className="h-8 w-auto object-contain"
+                        />
+                    </div>
                 </div>
             )}
         </header>

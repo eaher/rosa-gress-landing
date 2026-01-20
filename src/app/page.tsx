@@ -1,39 +1,59 @@
 import { Navbar } from "@/components/landing/Navbar"
 import { Hero } from "@/components/landing/Hero"
 import { Footer } from "@/components/landing/Footer"
-import { CatalogCTA } from "@/components/landing/CatalogCTA"
-import { Novedades } from "@/components/landing/Novedades"
-import { PoolTypes } from "@/components/landing/PoolTypes" // Step 1
-import { StyleGuide } from "@/components/landing/StyleGuide" // Step 2
-import { ColorGuide } from "@/components/landing/ColorGuide" // Step 3
-import { Personalization } from "@/components/landing/Personalization" // Step 4
+import { Products } from "@/components/landing/Products"
+import { CatalogDownload } from "@/components/landing/CatalogDownload"
+import { AboutUs } from "@/components/landing/AboutUs"
+import { InAndOut } from "@/components/landing/InAndOut"
+import { Contact } from "@/components/landing/Contact"
 import { Inspiration } from "@/components/landing/Inspiration"
+import { PoolTypes } from "@/components/landing/PoolTypes"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white font-sans">
       <Navbar />
+
+      {/* 1. Inicio */}
       <div id="hero">
         <Hero />
+        {/* Note: Hero includes LeadForm internally */}
       </div>
-      <CatalogCTA />
-      <div id="novedades">
-        <Novedades />
+
+      {/* 2. Productos */}
+      <div id="products">
+        <Products />
       </div>
-      <div id="pooltypes">
-        <PoolTypes />
+
+      <CatalogDownload />
+
+      {/* 3. Sobre Nosotros */}
+      <div id="about">
+        <AboutUs />
       </div>
-      <StyleGuide />
-      <div id="colorguide">
-        <ColorGuide />
+
+      {/* 4. In and Out */}
+      <div id="inandout">
+        <InAndOut />
       </div>
-      <Personalization />
+
+      {/* 5. Galería de fotos Inspiración */}
       <div id="inspiration">
         <Inspiration />
       </div>
-      <div id="contact">
-        <Footer />
+
+      {/* 6. Estilo de Piscinas */}
+      <div id="pooltypes">
+        <PoolTypes />
       </div>
+
+      {/* 7. Contacto */}
+      <div id="contact">
+        <Contact />
+      </div>
+
+      {/* 8. Footer */}
+      <Footer />
     </main>
   )
 }
