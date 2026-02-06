@@ -55,7 +55,7 @@ export function AboutUs() {
                             </p>
                             <div className="pt-8">
                                 <Button
-                                    className="bg-black hover:bg-gray-800 text-white font-bold py-6 px-8 rounded-none uppercase tracking-wider text-sm"
+                                    className="bg-[#FF006E] hover:bg-[#d6005c] text-white font-bold py-6 px-8 rounded-none uppercase tracking-widest text-sm shadow-lg transition-all"
                                 >
                                     DESCARGAR CATÁLOGO UNIQUE POOLS
                                 </Button>

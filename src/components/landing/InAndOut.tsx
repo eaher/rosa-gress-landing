@@ -34,11 +34,11 @@ export function InAndOut() {
         <section className="min-h-[calc(100vh-80px)] flex flex-col justify-start bg-white pt-10 pb-32">
             <div className="container mx-auto px-4 md:px-8">
                 {/* Header */}
-                <div className="text-center mb-8">
-                    <h3 className="text-[#FF006E] font-bold tracking-widest uppercase mb-2 text-sm md:text-base">
-                        LA ARMONÍA ES TENDENCIA
+                <div className="text-center mb-16">
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#FF006E] mb-4">
+                        La armonía es tendencia
                     </h3>
-                    <h2 className="text-lg md:text-3xl font-bold text-black max-w-4xl mx-auto leading-tight">
+                    <h2 className="text-2xl md:text-4xl font-bold text-black max-w-4xl mx-auto leading-tight">
                         In & Out Design: nuestros suelos porcelánicos para coordinar los interiores, la terraza y la piscina
                     </h2>
                 </div>

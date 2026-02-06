@@ -45,12 +45,32 @@ export function LeadForm({ hideHeader = false, className }: LeadFormProps) {
 
     const onSubmit = async (data: FormValues) => {
         setIsSubmitting(true)
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        console.log("Form Data:", { ...data, type: activeTab })
-        setIsSubmitting(false)
-        reset()
-        alert("Mensaje enviado con éxito")
+        try {
+            const formData = new FormData()
+            Object.entries(data).forEach(([key, value]) => {
+                if (value) formData.append(key, value)
+            })
+            formData.append('type', activeTab)
+
+            const response = await fetch('/contact.php', {
+                method: 'POST',
+                body: formData,
+            })
+
+            const result = await response.json()
+
+            if (result.success) {
+                alert("Mensaje enviado con éxito")
+                reset()
+            } else {
+                alert("Error al enviar el mensaje: " + (result.error || "Ocurrió un problema"))
+            }
+        } catch (error) {
+            console.error("Submission error:", error)
+            alert("Ocurrió un error al intentar enviar el formulario.")
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
