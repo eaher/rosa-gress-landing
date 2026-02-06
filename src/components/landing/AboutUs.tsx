@@ -1,9 +1,10 @@
 import Image from "next/image"
+import { Button } from "@/components/ui/Button"
 
 export function AboutUs() {
     return (
-        <section className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-4 md:px-8">
+        <section className="pt-24 pb-15 bg-white overflow-hidden">
+            <div className="container max-w-7xl mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-black inline-block">
@@ -49,16 +50,23 @@ export function AboutUs() {
                                     className="object-contain object-left"
                                 />
                             </div>
-                            <p className="text-gray-600 text-lg leading-relaxed">
+                            <p className="text-gray-600 text-lg leading-relaxed mb-8">
                                 Hace más de 14 años que impulsamos proyectos a través de la distribución de pisos y revestimientos de marcas europeas y latinoamericanas, combinando trayectoria, conocimiento técnico y un portfolio de productos premium de diseño.
                             </p>
+                            <div className="pt-8">
+                                <Button
+                                    className="bg-black hover:bg-gray-800 text-white font-bold py-6 px-8 rounded-none uppercase tracking-wider text-sm"
+                                >
+                                    DESCARGAR CATÁLOGO UNIQUE POOLS
+                                </Button>
+                            </div>
                         </div>
 
                     </div>
 
                     {/* Right Column: Image */}
                     <div className="w-full lg:w-1/2">
-                        <div className="relative h-[600px] w-full rounded-lg overflow-hidden shadow-xl">
+                        <div className="relative h-[450px] w-full overflow-hidden shadow-xl">
                             <Image
                                 src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2070&auto=format&fit=crop" // Placeholder pool image
                                 alt="Sobre Nosotros"

@@ -1,124 +1,111 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import { cn } from "@/lib/utils"
-import { Menu, X } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
 
 export function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false)
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10)
-        }
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
-
-    const scrollToSection = (id: string) => {
-        setIsMobileMenuOpen(false)
-        const element = document.getElementById(id)
+    // Adapted Scroll function from previous implementation
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace("#", "");
+        const element = document.getElementById(targetId);
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" })
+            element.scrollIntoView({ behavior: "smooth" });
+            setIsMenuOpen(false);
         }
-    }
+    };
 
-    const links = [
-        { label: "Inicio", id: "hero" },
-        { label: "Productos", id: "products" },
-        { label: "Sobre Nosotros", id: "about" },
-        { label: "In & Out", id: "inandout" },
-        { label: "Galería", id: "inspiration" },
-        { label: "Estilo de Piscinas", id: "pooltypes" },
-        { label: "Contacto", id: "contact" },
-    ]
+    const navLinks = [
+        { name: 'Inicio', href: '#hero' },
+        { name: 'Productos', href: '#products' },
+        { name: 'Nosotros', href: '#about' },
+        { name: 'In & Out', href: '#in-and-out' },
+        { name: 'Estilo', href: '#inspiration' },
+        { name: 'Contacto', href: '#contact' },
+    ];
 
     return (
-        <header
-            className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white",
-                isScrolled ? "py-2 shadow-sm" : "py-4"
-            )}
-        >
-            <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+        // Contenedor principal: ancho completo, fondo blanco, sombra
+        <nav className="fixed top-0 left-0 right-0 z-50 w-full h-16 lg:h-20 bg-white shadow-sm">
 
-                {/* Left Logo: Ceracor */}
-                <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection("hero")}>
-                    <Link href="/" className="block">
-                        <Image
-                            src="/image/logo/logo-cera.png"
-                            alt="Ceracor"
-                            width={140}
-                            height={50}
-                            className="h-10 md:h-12 w-auto object-contain"
-                            priority
-                        />
-                    </Link>
-                </div>
+            {/* Contenedor interno: centrado y ancho limitado para alineación con el resto de la web */}
+            <div className="container max-w-7xl mx-auto px-4 h-full flex items-center justify-between relative">
 
-                {/* Desktop Nav - Centered */}
-                <nav className="hidden xl:flex items-center justify-center gap-x-1">
-                    {links.map((link, index) => (
-                        <div key={link.label} className="flex items-center">
-                            <button
-                                onClick={() => scrollToSection(link.id)}
-                                className="text-[14px] font-medium text-gray-600 hover:text-[#00B4B0] uppercase tracking-wider transition-colors px-2"
-                            >
-                                {link.label}
-                            </button>
-                            {/* No separator pipe based on the image provided, just clean spacing */}
-                        </div>
-                    ))}
-                </nav>
-
-                {/* Right Logo: Rosa Gres / Strufaldi */}
-                <div className="hidden xl:block flex-shrink-0">
+                {/* PARTE 1: Izquierda - Logo 1 (Ceracor) */}
+                <div className="relative h-8 w-24 md:h-10 md:w-28 lg:h-12 lg:w-36 flex-shrink-0 cursor-pointer" onClick={() => {
+                    const el = document.getElementById('hero');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}>
                     <Image
-                        src="/image/logo/logo-rosa.png"
-                        alt="Rosa Gres"
-                        width={180}
-                        height={64}
-                        className="h-14 md:h-16 w-auto object-contain"
+                        src="/image/logo/logo-cera.png"
+                        alt="Ceracor"
+                        fill
+                        className="object-contain object-left"
                         priority
                     />
                 </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="xl:hidden p-2 text-gray-800"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 right-0 bg-white border-t p-4 shadow-lg xl:hidden flex flex-col gap-4">
-                    {links.map((link) => (
-                        <button
-                            key={link.label}
-                            onClick={() => scrollToSection(link.id)}
-                            className="text-left py-2 text-gray-700 font-bold text-xs uppercase"
+                {/* PARTE 2: Centro - Menú de Navegación (Desktop) */}
+                <div className="hidden xl:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 items-center gap-6 lg:gap-8">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={(e) => scrollToSection(e, link.href)}
+                            className="text-sm font-medium text-gray-700 hover:text-[#00B4B0] hover:underline underline-offset-4 transition-colors uppercase tracking-wide whitespace-nowrap cursor-pointer"
                         >
-                            {link.label}
-                        </button>
+                            {link.name}
+                        </a>
                     ))}
-                    {/* Show right logo in mobile menu bottom? */}
-                    <div className="pt-4 border-t flex justify-center">
+                </div>
+
+                {/* PARTE 3: Derecha - Logo 2 + Botón Móvil */}
+                <div className="flex items-center gap-4">
+                    {/* Logo 2 (Rosa Gres) */}
+                    <div className="relative h-8 w-28 md:h-12 md:w-36 lg:h-12 lg:w-44 flex-shrink-0">
                         <Image
                             src="/image/logo/logo-rosa.png"
                             alt="Rosa Gres"
-                            width={120}
-                            height={40}
-                            className="h-8 w-auto object-contain"
+                            fill
+                            className="object-contain object-right"
+                            priority
                         />
                     </div>
+
+                    {/* Botón Hamburguesa (Móvil) */}
+                    <button
+                        className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                </div>
+            </div>
+
+            {/* MENÚ MÓVIL (Overlay) */}
+            {isMenuOpen && (
+                <div className="xl:hidden absolute top-16 md:top-20 left-0 w-full bg-white shadow-lg border-t border-gray-100 flex flex-col p-4 animate-in slide-in-from-top-2 duration-300 items-center">
+                    <ul className="flex flex-col gap-4 w-full items-center">
+                        {navLinks.map((link) => (
+                            <li key={link.name} className="w-full text-center">
+                                <a
+                                    href={link.href}
+                                    onClick={(e) => scrollToSection(e, link.href)}
+                                    className="block text-base font-medium text-gray-800 hover:text-[#00B4B0] hover:bg-gray-50 py-2 rounded-md transition-colors uppercase tracking-wide cursor-pointer"
+                                >
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             )}
-        </header>
-    )
+        </nav>
+    );
 }

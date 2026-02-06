@@ -1,36 +1,174 @@
-import { LeadForm } from "./LeadForm"
+'use client';
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export function Hero() {
+    const [formType, setFormType] = useState<'individual' | 'pro'>('pro');
+    const [contactMethod, setContactMethod] = useState<'whatsapp' | 'call' | 'mail'>('whatsapp');
+
     return (
-        <section className="relative pt-32 bg-white">
+        <section id="hero" className="flex flex-col relative pt-20 lg:pt-24 bg-white">
+
             {/* Container for Title only */}
             <div className="container px-4 md:px-8 mb-8 flex justify-center mx-auto">
                 <div className="w-full text-center">
-                    <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black tracking-tighter leading-tight whitespace-nowrap inline-block">
+                    <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-black tracking-tighter leading-tight inline-block">
                         Ideas para diseñar tu piscina de gres porcelánico
                     </h1>
                 </div>
             </div>
 
-            {/* Full Width Image Container */}
-            <div className="relative w-full h-[850px] lg:h-[1000px] overflow-visible">
+            {/* Hero Container */}
+            <div className="relative w-full bg-gray-100 min-h-[600px] lg:min-h-[650px] lg:h-[800px] flex flex-col lg:block">
+
                 {/* Background Image */}
-                <div className="absolute inset-0 w-full h-full">
-                    <img
+                <div className="relative w-full h-[400px] md:h-[500px] lg:absolute lg:inset-0 lg:h-full z-0">
+                    <Image
                         src="/image/hero/rosa-gres-piscina-gres-porcelanico-cuore-verde.webp"
-                        alt="Hero Pool"
-                        className="w-full h-full object-cover"
+                        alt="Piscina Rosa Gres"
+                        fill
+                        className="object-cover -z-10"
+                        priority
                     />
+                    {/* Optional overlay for contrast */}
+                    <div className="absolute inset-0 bg-black/10 z-0"></div>
                 </div>
 
-                {/* Form Overlay - Positioned absolutely on the right */}
-                <div className="absolute top-0 right-0 left-0 md:left-auto md:right-10 lg:right-20 px-4 md:px-0 z-20 flex justify-center md:justify-end pointer-events-none">
-                    {/* Wrapper to restore pointer events and constrain width */}
-                    <div className="w-full max-w-md pointer-events-auto shadow-2xl">
-                        <LeadForm />
-                    </div>
+                {/* Contact Card Positioning Wrapper - Positioned relative to the viewport/full-width Hero container */}
+                <div className="relative z-20 w-full lg:h-full pointer-events-auto lg:pointer-events-none">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="pointer-events-auto w-full lg:max-w-[380px] xl:max-w-[450px] mx-auto bg-white shadow-2xl rounded-none overflow-hidden
+                         lg:absolute lg:right-[40px] lg:top-10 my-0 lg:my-0 lg:mx-0"
+                    >
+                        {/* A. Card Header - Teal Strip */}
+                        <div className="bg-[#00B4B0] py-4 px-6">
+                            <h2 className="text-white font-bold text-center text-lg tracking-wider uppercase">
+                                CONTACTA CON NOSOTROS
+                            </h2>
+                        </div>
+
+                        <div className="p-6">
+                            {/* B. The Selector - Modern Segmented Control */}
+                            <div className="bg-gray-100 p-1 rounded-none flex mb-6">
+                                <button
+                                    type="button"
+                                    onClick={() => setFormType('pro')}
+                                    className={`flex-1 py-2 text-sm font-medium rounded-none transition-all duration-200 ${formType === 'pro'
+                                        ? 'bg-strufaldi-charcoal text-white shadow-sm'
+                                        : 'text-gray-500 hover:text-gray-700'
+                                        }`}
+                                >
+                                    Constructor de Piscinas
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setFormType('individual')}
+                                    className={`flex-1 py-2 text-sm font-medium rounded-none transition-all duration-200 ${formType === 'individual'
+                                        ? 'bg-strufaldi-charcoal text-white shadow-sm'
+                                        : 'text-gray-500 hover:text-gray-700'
+                                        }`}
+                                >
+                                    Quiero Comprar
+                                </button>
+                            </div>
+
+                            {/* C. Form Fields - Compact Grid */}
+                            <form className="space-y-3">
+                                {/* Row 1: Nombre (50%) | Apellido (50%) */}
+                                <div className="flex gap-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Nombre"
+                                        className="w-1/2 px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all"
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Apellido"
+                                        className="w-1/2 px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all"
+                                    />
+                                </div>
+
+                                {/* Row 2: Email (100%) */}
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className="w-full px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all"
+                                />
+
+                                {/* Row 3: Teléfono (Full Width) */}
+                                <input
+                                    type="tel"
+                                    placeholder="Teléfono"
+                                    className="w-full px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all"
+                                />
+
+                                {/* Row 4: Población (50%) | Provincia (50%) */}
+                                <div className="flex gap-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Ciudad"
+                                        className="w-1/2 px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all"
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Provincia"
+                                        className="w-1/2 px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all"
+                                    />
+                                </div>
+
+
+                                {/* Row 6: Mensaje (Textarea) */}
+                                <textarea
+                                    rows={3}
+                                    placeholder="Mensaje"
+                                    className="w-full px-3 py-2 bg-white border border-gray-300 rounded-none focus:border-[#00B4B0] focus:ring-1 focus:ring-[#00B4B0] focus:outline-none placeholder:text-gray-400 text-sm transition-all resize-none"
+                                ></textarea>
+
+                                {/* Selector de Comunicación (Radio Buttons) */}
+                                <div className="space-y-2 pt-1">
+                                    <label className="text-xs text-gray-500 font-medium ml-1">Quiero que me contacten por:</label>
+                                    <div className="flex gap-4 px-1">
+                                        {[
+                                            { id: 'whatsapp', label: 'WhatsApp' },
+                                            { id: 'call', label: 'Llamada' },
+                                            { id: 'mail', label: 'Mail' }
+                                        ].map((option) => (
+                                            <label key={option.id} className="flex items-center gap-2 cursor-pointer group">
+                                                <div className="relative flex items-center justify-center">
+                                                    <input
+                                                        type="radio"
+                                                        name="contactMethod"
+                                                        value={option.id}
+                                                        checked={contactMethod === option.id}
+                                                        onChange={() => setContactMethod(option.id as any)}
+                                                        className="peer appearance-none w-4 h-4 border border-gray-300 rounded-full checked:border-[#00B4B0] checked:border-4 transition-all cursor-pointer"
+                                                    />
+                                                </div>
+                                                <span className={`text-xs font-medium transition-colors ${contactMethod === option.id ? 'text-[#00B4B0]' : 'text-gray-600 group-hover:text-gray-800'
+                                                    }`}>
+                                                    {option.label}
+                                                </span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-[#00B4B0] text-white font-bold py-3 mt-2 rounded-none uppercase tracking-widest hover:bg-[#009692] transition-colors shadow-md text-sm"
+                                >
+                                    ENVIAR
+                                </button>
+                            </form>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
-    )
+    );
 }

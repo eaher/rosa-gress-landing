@@ -1,31 +1,42 @@
+
 import Image from "next/image"
 
 export function InAndOut() {
+    // Ordered images based on the numbering 4 to 9 in filenames
+    const images = [
+        "/image/In%20&%20Out/rosa-gres-4-inout-sophy-white.webp",
+        "/image/In%20&%20Out/rosa-gres-5-inout-cuore-rosso.webp",
+        "/image/In%20&%20Out/rosa-gres-6.-nout-iconic-white.webp",
+        "/image/In%20&%20Out/rosa-gres-7-inout-gran-formato-scaled-1-1024x817.webp",
+        "/image/In%20&%20Out/rosa-gres-8-inout-sophy-beige.webp",
+        "/image/In%20&%20Out/rosa-gres-9-inout-coral-sand.webp"
+    ];
+
     return (
-        <section className="py-20 bg-[#F5F5F7]">
+        <section className="min-h-[calc(100vh-80px)] flex flex-col justify-start bg-white pt-10 pb-32">
             <div className="container mx-auto px-4 md:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">In & Out</h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Continuidad visual perfecta. Coordina el interior y el exterior de tu hogar con la misma estética.
-                    </p>
+                {/* Header */}
+                <div className="text-center mb-8">
+                    <h3 className="text-[#FF006E] font-bold tracking-widest uppercase mb-2">
+                        LA ARMONÍA ES TENDENCIA
+                    </h3>
+                    <h2 className="text-xl md:text-3xl font-bold text-black max-w-4xl mx-auto leading-tight">
+                        In & Out Design: nuestros suelos porcelánicos para coordinar los interiores, la terraza y la piscina
+                    </h2>
                 </div>
 
-                <div className="relative w-full h-[600px] rounded-sm overflow-hidden group">
-                    <Image
-                        src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop"
-                        alt="In and Out Design"
-                        fill
-                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12">
-                        <div className="text-white">
-                            <h3 className="text-3xl font-light mb-4">Sin Límites</h3>
-                            <p className="text-lg max-w-xl opacity-90">
-                                Nuestra tecnología permite llevar el mismo pavimento desde el salón hasta el borde de la piscina, creando espacios infinitos y elegantes.
-                            </p>
+                {/* Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                    {images.map((src, idx) => (
+                        <div key={idx} className="relative aspect-[4/3] w-full group overflow-hidden">
+                            <Image
+                                src={src}
+                                alt={`In & Out ${idx + 1}`}
+                                fill
+                                className={`transition-transform duration-700 group-hover:scale-105 ${idx === 3 ? "object-contain bg-[#f3f3f3]" : "object-cover"}`}
+                            />
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>

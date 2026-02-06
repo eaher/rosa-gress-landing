@@ -21,9 +21,7 @@ export function PoolTypes() {
         <section className="py-20 bg-[#F5F5F5]">
             <div className="container mx-auto px-4 md:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-black mb-6 tracking-tight">
-                        Cómo diseñar tu piscina paso a paso
-                    </h2>
+
                     <h3 className="text-2xl md:text-3xl font-bold text-[#FF006E] mb-8">
                         1. Decide qué tipo de piscina
                     </h3>

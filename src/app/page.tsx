@@ -2,12 +2,14 @@ import { Navbar } from "@/components/landing/Navbar"
 import { Hero } from "@/components/landing/Hero"
 import { Footer } from "@/components/landing/Footer"
 import { Products } from "@/components/landing/Products"
-import { CatalogDownload } from "@/components/landing/CatalogDownload"
+
 import { AboutUs } from "@/components/landing/AboutUs"
 import { InAndOut } from "@/components/landing/InAndOut"
+
 import { Contact } from "@/components/landing/Contact"
-import { Inspiration } from "@/components/landing/Inspiration"
+
 import { PoolTypes } from "@/components/landing/PoolTypes"
+import { IntroText } from "@/components/landing/IntroText"
 
 export default function Home() {
   return (
@@ -20,29 +22,25 @@ export default function Home() {
         {/* Note: Hero includes LeadForm internally */}
       </div>
 
+      <IntroText />
+
       {/* 2. Productos */}
       <div id="products">
         <Products />
       </div>
 
-      <CatalogDownload />
+
 
       {/* 3. Sobre Nosotros */}
       <div id="about">
         <AboutUs />
       </div>
 
-      {/* 4. In and Out */}
-      <div id="inandout">
+      <div id="inandout" className="scroll-mt-24">
         <InAndOut />
       </div>
 
-      {/* 5. Galería de fotos Inspiración */}
-      <div id="inspiration">
-        <Inspiration />
-      </div>
-
-      {/* 6. Estilo de Piscinas */}
+      {/* 4. Estilo de Piscinas (Replaces In & Out) */}
       <div id="pooltypes">
         <PoolTypes />
       </div>
