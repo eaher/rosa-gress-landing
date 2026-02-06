@@ -24,7 +24,7 @@ export function Navbar() {
         { name: 'Inicio', href: '#hero' },
         { name: 'Productos', href: '#products' },
         { name: 'Nosotros', href: '#about' },
-        { name: 'In & Out', href: '#in-and-out' },
+        { name: 'In & Out', href: '#in-out' },
         { name: 'Estilo', href: '#inspiration' },
         { name: 'Contacto', href: '#contact' },
     ];
