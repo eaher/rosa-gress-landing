@@ -36,12 +36,12 @@ export default function Home() {
         <AboutUs />
       </div>
 
-      <div id="inandout" className="scroll-mt-24">
+      <div id="in-out" className="scroll-mt-24">
         <InAndOut />
       </div>
 
       {/* 4. Estilo de Piscinas (Replaces In & Out) */}
-      <div id="pooltypes">
+      <div id="pool-design">
         <PoolTypes />
       </div>
 

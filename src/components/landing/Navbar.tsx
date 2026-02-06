@@ -25,7 +25,7 @@ export function Navbar() {
         { name: 'Productos', href: '#products' },
         { name: 'Nosotros', href: '#about' },
         { name: 'In & Out', href: '#in-out' },
-        { name: 'Estilo', href: '#inspiration' },
+        { name: 'Diseño', href: '#pool-design' },
         { name: 'Contacto', href: '#contact' },
     ];
 
@@ -79,7 +79,7 @@ export function Navbar() {
 
                     {/* Botón Hamburguesa (Móvil) */}
                     <button
-                        className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                        className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-none transition-colors"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -97,7 +97,7 @@ export function Navbar() {
                                 <a
                                     href={link.href}
                                     onClick={(e) => scrollToSection(e, link.href)}
-                                    className="block text-base font-medium text-gray-800 hover:text-[#00B4B0] hover:bg-gray-50 py-2 rounded-md transition-colors uppercase tracking-wide cursor-pointer"
+                                    className="block text-base font-medium text-gray-800 hover:text-[#00B4B0] hover:bg-gray-50 py-2 rounded-none transition-colors uppercase tracking-wide cursor-pointer"
                                 >
                                     {link.name}
                                 </a>

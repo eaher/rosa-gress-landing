@@ -24,13 +24,13 @@ export function Footer() {
                             Empresa de distribución de pisos y revestimientos europeos y latinoamericanos.
                         </p>
                         <div className="flex gap-4 mt-2">
-                            <a href="https://www.instagram.com/ceracor.ok" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-strufaldi-red transition-colors" aria-label="Instagram">
+                            <a href="https://www.instagram.com/ceracor.ok" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-none bg-white/10 flex items-center justify-center hover:bg-strufaldi-red transition-colors" aria-label="Instagram">
                                 <Instagram size={20} className="text-white" />
                             </a>
-                            <a href="https://www.facebook.com/ceracor" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-strufaldi-red transition-colors" aria-label="Facebook">
+                            <a href="https://www.facebook.com/ceracor" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-none bg-white/10 flex items-center justify-center hover:bg-strufaldi-red transition-colors" aria-label="Facebook">
                                 <Facebook size={20} className="text-white" />
                             </a>
-                            <a href="https://ar.linkedin.com/company/ceracor-sa" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-strufaldi-red transition-colors" aria-label="LinkedIn">
+                            <a href="https://ar.linkedin.com/company/ceracor-sa" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-none bg-white/10 flex items-center justify-center hover:bg-strufaldi-red transition-colors" aria-label="LinkedIn">
                                 <Linkedin size={20} className="text-white" />
                             </a>
                         </div>
@@ -40,10 +40,11 @@ export function Footer() {
                     <div>
                         <h4 className="font-bold text-lg mb-4 text-white uppercase tracking-wider">Explorar</h4>
                         <ul className="space-y-2">
+                            <li><a href="#hero" className="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
                             <li><a href="#products" className="text-gray-400 hover:text-white transition-colors">Productos</a></li>
-
                             <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
                             <li><a href="#in-out" className="text-gray-400 hover:text-white transition-colors">In & Out</a></li>
+                            <li><a href="#pool-design" className="text-gray-400 hover:text-white transition-colors">Diseño</a></li>
                             <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
                         </ul>
                     </div>

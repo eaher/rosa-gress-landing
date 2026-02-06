@@ -31,20 +31,20 @@ export function InAndOut() {
     }, [selectedImage]);
 
     return (
-        <section id="in-out" className="min-h-[calc(100vh-80px)] flex flex-col justify-start bg-white pt-10 pb-32">
+        <section className="min-h-[calc(100vh-80px)] flex flex-col justify-start bg-white pt-10 pb-32">
             <div className="container mx-auto px-4 md:px-8">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h3 className="text-[#FF006E] font-bold tracking-widest uppercase mb-2">
+                    <h3 className="text-[#FF006E] font-bold tracking-widest uppercase mb-2 text-sm md:text-base">
                         LA ARMONÍA ES TENDENCIA
                     </h3>
-                    <h2 className="text-xl md:text-3xl font-bold text-black max-w-4xl mx-auto leading-tight">
+                    <h2 className="text-lg md:text-3xl font-bold text-black max-w-4xl mx-auto leading-tight">
                         In & Out Design: nuestros suelos porcelánicos para coordinar los interiores, la terraza y la piscina
                     </h2>
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <div className="grid grid-cols-3 gap-1.5 md:gap-4 max-w-6xl mx-auto">
                     {images.map((src, idx) => {
                         const isExcluded = src.includes("rosa-gres-7-inout-gran-formato");
                         return (
@@ -57,11 +57,29 @@ export function InAndOut() {
                                     src={src}
                                     alt={`In & Out ${idx + 1}`}
                                     fill
-                                    className={`transition-all duration-700 ${idx === 3 ? "object-contain bg-[#f3f3f3]" : "object-cover"}`}
+                                    className={`transition-all duration-700 ${idx === 3 ? "object-contain bg-[#f3f3f3] p-2" : "object-cover"}`}
                                 />
                             </div>
                         );
                     })}
+                </div>
+
+                {/* CTA Section */}
+                <div className="mt-12 text-center">
+                    <p className="text-gray-900 font-bold mb-4 text-xs md:text-sm uppercase tracking-wider">
+                        ¿NECESITAS MÁS INFORMACIÓN?
+                    </p>
+                    <button
+                        onClick={() => {
+                            const contactSection = document.getElementById('contact');
+                            if (contactSection) {
+                                contactSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className="bg-[#FF006E] hover:bg-[#d6005c] text-white font-bold py-4 px-8 md:px-12 rounded-none transition-all uppercase tracking-widest text-sm md:text-base shadow-lg"
+                    >
+                        ¡CONTACTA CON NOSOTROS!
+                    </button>
                 </div>
             </div>
 
