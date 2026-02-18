@@ -57,7 +57,7 @@ export function AboutUs() {
                                 <Button
                                     className="bg-[#FF006E] hover:bg-[#d6005c] text-white font-bold py-6 px-8 rounded-none uppercase tracking-widest text-sm shadow-lg transition-all"
                                 >
-                                    DESCARGAR CATÁLOGO UNIQUE POOLS
+                                    DESCARGAR CATÁLOGO
                                 </Button>
                             </div>
                         </div>

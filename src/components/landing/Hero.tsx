@@ -9,16 +9,9 @@ export function Hero() {
     const [contactMethod, setContactMethod] = useState<'whatsapp' | 'call' | 'mail'>('whatsapp');
 
     return (
-        <section id="hero" className="flex flex-col relative pt-20 lg:pt-24 bg-white">
+        <section id="hero" className="flex flex-col relative pt-16 lg:pt-20 bg-white">
 
-            {/* Container for Title only */}
-            <div className="container px-4 md:px-8 mb-8 flex justify-center mx-auto">
-                <div className="w-full text-center">
-                    <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-black tracking-tighter leading-tight inline-block">
-                        Ideas para diseñar tu piscina de gres porcelánico
-                    </h1>
-                </div>
-            </div>
+
 
             {/* Hero Container */}
             <div className="relative w-full bg-gray-100 min-h-[600px] lg:min-h-[650px] lg:h-[800px] flex flex-col lg:block">

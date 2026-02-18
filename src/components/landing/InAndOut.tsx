@@ -39,7 +39,7 @@ export function InAndOut() {
                         La armonía es tendencia
                     </h3>
                     <h2 className="text-2xl md:text-4xl font-bold text-black max-w-4xl mx-auto leading-tight">
-                        In & Out Design: nuestros suelos porcelánicos para coordinar los interiores, la terraza y la piscina
+                        In & Out Design: porcelanatos premium para la integración de interiores, terrazas y piletas
                     </h2>
                 </div>
 

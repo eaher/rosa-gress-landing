@@ -43,17 +43,12 @@ export function PoolTypes() {
                     {/* Main Header */}
                     <div className="text-center mb-16">
                         <h2 className="text-2xl md:text-4xl font-bold text-black mb-4">
-                            Cómo diseñar tu piscina paso a paso
+                            Elegí tu tipo de piscina
                         </h2>
                         <div className="w-24 h-1 bg-[#FF006E] mx-auto mb-12"></div>
                     </div>
 
                     <div className="mb-8">
-                        <div className="text-center mb-10">
-                            <h3 className="text-2xl md:text-3xl font-bold text-[#FF006E]">
-                                Decide qué tipo de piscina
-                            </h3>
-                        </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                             {types.map((type, index) => (
@@ -106,7 +101,7 @@ export function PoolTypes() {
                     <div className="text-center pt-8">
                         <p className="text-sm font-bold uppercase mb-4">¿QUIERES SABER MÁS?</p>
                         <Button className="bg-[#FF006E] text-white font-bold py-3 px-8 uppercase hover:bg-[#d6005c] transition-colors rounded-none text-sm">
-                            DESCARGAR CATÁLOGO UNIQUE POOLS
+                            DESCARGAR CATÁLOGO
                         </Button>
                     </div>
                 </div>
